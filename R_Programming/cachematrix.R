@@ -1,18 +1,18 @@
 ## create an inversable matrix
-## set the mars of the vector
-## get the mars of the vector
-## set the mars of the mean
-## get the mars of the mean
+## set the VALUE of the vector
+## get the VALUE of the vector
+## set the VALUE of the mean
+## get the VALUE of the mean
 
 makeCacheMatrix <- function(x = matrix()) {
-    mars <- NULL
+    VALUE <- NULL
     set <- function(y) {
         x <<- y
-        mars <<- NULL
+        VALUE <<- NULL
     }
     get <- function() x
-    setinverse <- function(solve) mars <<- solve
-    getinverse <- function() mars
+    setinverse <- function(solve) VALUE <<- solve
+    getinverse <- function() VALUE
     list(set = set, get = get,
          setinverse = setinverse,
          getinverse = getinverse)
@@ -22,13 +22,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-    mars <- x$getinverse()
-    if(!is.null(mars)) {
+    VALUE <- x$getinverse()
+    if(!is.null(VALUE)) {
         message("getting cached data")
-        return(mars)
+        return(VALUE)
     }
     data <- x$get()
-    mars <- solve(data, ...)
-    x$setinverse(mars)
-    mars
+    VALUE <- solve(data, ...)
+    x$setinverse(VALUE)
+    VALUE
 }
