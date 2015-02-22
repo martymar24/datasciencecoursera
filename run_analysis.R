@@ -86,3 +86,6 @@ createTidyDataFile <- function(fname) {
     tidy_data <- getTidyData(getMergedLabeledData())
     write.table(tidy_data, fname)
 }
+
+tidy_datafile("tidy.txt")
+
